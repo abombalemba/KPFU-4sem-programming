@@ -1,0 +1,23 @@
+# Игнорировать папки сборки
+bin/
+obj/
+
+# Игнорировать файлы пользовательских настроек Visual Studio
+*.suo
+*.user
+*.csproj.user
+*.sln.docstates
+
+# Игнорировать файлы сборки
+*.exe
+*.dll
+
+# Игнорировать папку пакетов NuGet
+packages/
+
+# Игнорировать файлы JetBrains Rider
+.idea/
+*.iml
+
+# Игнорировать файлы Resharper
+_ReSharper*/
