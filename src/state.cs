@@ -29,7 +29,7 @@ namespace Patterns {
 			public void Start(Car car) {
 				if (car.GetState() is not StartedState) {
 					car.SetState(new StartedState());
-					Console.WriteLine("The car is started1");
+					Console.WriteLine("The car is started");
 				} else {
 					Console.WriteLine("The car is already started");
 				}
@@ -37,25 +37,25 @@ namespace Patterns {
 
 			public void Stop(Car car) {
 				car.SetState(new StoppedState());
-				Console.WriteLine("The car is stopped1");
+				Console.WriteLine("The car is stopped");
 			}
 
 			public void Park(Car car) {
 				car.SetState(new ParkedState());
-				Console.WriteLine("The car is parked1");
+				Console.WriteLine("The car is parked");
 			}
 		}
 
 		public class StoppedState : ICarState {
 			public void Start(Car car) {
 				car.SetState(new StartedState());
-				Console.WriteLine("The car is started2");
+				Console.WriteLine("The car is started");
 			}
 
 			public void Stop(Car car) {
 				if (car.GetState() is not StoppedState) {
 					car.SetState(new StoppedState());
-					Console.WriteLine("The car is stopped2");
+					Console.WriteLine("The car is stopped");
 				} else {
 					Console.WriteLine("The car is already stopped");
 				}
@@ -63,25 +63,25 @@ namespace Patterns {
 
 			public void Park(Car car) {
 				car.SetState(new ParkedState());
-				Console.WriteLine("The car is parked2");
+				Console.WriteLine("The car is parked");
 			}
 		}
 
 		public class ParkedState : ICarState {
 			public void Start(Car car) {
 				car.SetState(new StartedState());
-				Console.WriteLine("The car is started3");
+				Console.WriteLine("The car is started");
 			}
 
 			public void Stop(Car car) {
 				car.SetState(new StoppedState());
-				Console.WriteLine("The car is stopped3");
+				Console.WriteLine("The car is stopped");
 			}
 
 			public void Park(Car car) {
 				if (car.GetState() is not ParkedState) {
 					car.SetState(new ParkedState());
-					Console.WriteLine("The car is parked3");
+					Console.WriteLine("The car is parked");
 				} else {
 					Console.WriteLine("The car is already parked");
 				}

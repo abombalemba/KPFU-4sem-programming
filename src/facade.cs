@@ -6,8 +6,8 @@ namespace Patterns {
 			CarFacade car;
 
 			car = new CarFacade();
+
 			car.Drive();
-			Console.WriteLine();
 			car.Park();
 		}
 
@@ -24,12 +24,20 @@ namespace Patterns {
 				Console.WriteLine(string.Format("Switching to {0} gear", n));
             }
 
-			public void StartConditioner() {
-				Console.WriteLine("The air conditioner is started");
+			public void StartFuelSystem() {
+				Console.WriteLine("The fuel system is started");
 			}
 
-			public void StopConditioner() {
-				Console.WriteLine("The air conditioner is stopped");
+			public void StopFuelSystem() {
+				Console.WriteLine("The fuel system is stopped");
+			}
+			
+			public void StartOnboardComputer() {
+				Console.WriteLine("The onboard computer is started");
+			}
+
+			public void StopOnboardComputer() {
+				Console.WriteLine("The onboard computer is stopped");
 			}
 		}
 
@@ -41,15 +49,21 @@ namespace Patterns {
             }
 
 			public void Drive() {
+				_car.StartFuelSystem();
 				_car.StartEngine();
+				_car.StartOnboardComputer();
 				_car.ShiftGear(1);
-				_car.StartConditioner();
+				_car.ShiftGear(2);
+				_car.ShiftGear(3);
+				_car.ShiftGear(4);
+				_car.ShiftGear(5);
             }
 
 			public void Park() {
+				_car.StopFuelSystem();
 				_car.StopEngine();
+				_car.StopOnboardComputer();
 				_car.ShiftGear(0);
-				_car.StopConditioner();
             }
         }
 	}

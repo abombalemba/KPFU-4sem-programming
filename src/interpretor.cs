@@ -8,15 +8,17 @@ namespace Patterns {
 
 			car = new CarInterpretor();
 			car.Interpret("start engine");
-			car.Interpret("start conditioner");
+			car.Interpret("start fuel system");
+			car.Interpret("start onboard computer");
 			car.Interpret("shift 1");
 			car.Interpret("shift 2");
 			car.Interpret("shift 3");
 
 
 			car.Interpret("shift 0");
-			car.Interpret("stop conditioner");
 			car.Interpret("stop engine");
+			car.Interpret("stop fuel system");
+			car.Interpret("stop onboard computer");
 		}
 
 		public interface IExpression {
@@ -35,15 +37,26 @@ namespace Patterns {
 			}
 		}
 
-		public class StartCondition : IExpression {
+		public class StartFuelSystem : IExpression {
 			public void Interpret() {
-				Console.WriteLine("The condition is started");
+				Console.WriteLine("The fuel system is started");
 			}
 		}
 
-		public class StopCondition : IExpression {
+		public class StopFuelSystem : IExpression {
 			public void Interpret() {
-				Console.WriteLine("The condition is stopped");
+				Console.WriteLine("The fuel system is stopped");
+			}
+		}
+		public class StartOnboardComputer : IExpression {
+			public void Interpret() {
+				Console.WriteLine("The onboard computer is started");
+			}
+		}
+
+		public class StopOnboardComputer : IExpression {
+			public void Interpret() {
+				Console.WriteLine("The onboard computer is stopped");
 			}
 		}
 
@@ -66,8 +79,10 @@ namespace Patterns {
 				_dictionary = new Dictionary<string, IExpression> {
 					{"start engine", new StartEngine() },
 					{"stop engine", new StopEngine() },
-					{"start conditioner", new StartCondition() },
-					{"stop conditioner", new StopCondition() }
+					{"start fuel system", new StartFuelSystem() },
+					{"stop fuel system", new StopFuelSystem() },
+					{"start onboard computer", new StartOnboardComputer() },
+					{"stop onboard computer", new StopOnboardComputer() },
 				};
             }
 

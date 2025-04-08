@@ -5,7 +5,7 @@ namespace Patterns {
         public Decorator() {
             Car car;
 
-            car = new Car("Lada Aura");
+            car = new Car();
             car.info();
 
             car = new CarSpoiler(car);
@@ -14,7 +14,7 @@ namespace Patterns {
             car = new CarSpareWheel(car);
             car.info();
 
-            car = new Car("Hyundai Accent");
+            car = new Car();
             car.info();
 
             car = new CarSpareWheel(car);
@@ -22,17 +22,13 @@ namespace Patterns {
         }
 
         public class Car {
-            public string Model { get; set; }
             public virtual string[] Upgrades { get; set; }
 
-            public Car(string model) {
-                Model = model;
+            public Car() {
                 Upgrades = new string[0];
             }
 
             public void info() {
-                Console.WriteLine("> " + this.Model);
-
                 if (this.Upgrades.Length > 0) {
                     Console.WriteLine("Upgrades:");
 
@@ -49,7 +45,7 @@ namespace Patterns {
 
         public abstract class CarDecorator : Car {
             protected Car _car;
-            public CarDecorator(Car car) : base(car.Model) {
+            public CarDecorator(Car car) : base() {
                 _car = car;
             }
 
